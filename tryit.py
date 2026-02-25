@@ -4,107 +4,76 @@ import random
 WIDTH = 800
 HEIGHT = 600
 
+state = "start"
 score = 0
-game_over = False
 
-class Player:
-    def __init__(self, x, y):
-        self.image = "fish"
-        self.x = x
-        self.y = y
-        self.width = 40
-        self.height = 40
+player = Actor('fish')
+player.pos = (WIDTH // 2, HEIGHT // 2)
 
-class Collectible:
-    def __init__(self, x, y):
-        self.image = "plankton"
-        self.x = x
-        self.y = y
-        self.width = 30
-        self.height = 30
+# One jellyfish to start — your job: put multiple in a list!
+jellyfish = Actor('jellyfish')
+jellyfish.pos = (100, 100)
 
-class Obstacle:
-    def __init__(self, x, y):
-        self.image = "jellyfish"
-        self.x = x
-        self.y = y
-        self.width = 40
-        self.height = 40
+# One piece of plankton — your job: put multiple in a list!
+plankton = Actor('plankton')
+plankton.pos = (random.randint(50, WIDTH - 50), random.randint(50, HEIGHT - 50))
 
-class Shark:
-    def __init__(self, x, y):
-        self.image = "shark"
-        self.x = x
-        self.y = y
-        self.dx = 2
-        self.width = 50
-        self.height = 50
-
-player = Player(WIDTH // 2, HEIGHT // 2)
-plankton = Collectible(random.randint(0, WIDTH), random.randint(0, HEIGHT))
-jellyfish = Obstacle(random.randint(0, WIDTH), random.randint(0, HEIGHT))
-shark = Shark(100, 100)
+def reset_game():
+    global score
+    score = 0
+    player.pos = (WIDTH // 2, HEIGHT // 2)
 
 def update():
-    global score, game_over
-    
-    if game_over:
+    global state, score
+
+    if state != "playing":
         return
-    
-    # Move shark back and forth
-    shark.x += shark.dx
-    if shark.x < 0 or shark.x > WIDTH:
-        shark.dx = -shark.dx
-    
-    # Check collision with plankton
-    if (abs(player.x - plankton.x) < 40 and 
-        abs(player.y - plankton.y) < 40):
+
+    if keyboard.left:
+        player.x -= 4
+    if keyboard.right:
+        player.x += 4
+    if keyboard.up:
+        player.y -= 4
+    if keyboard.down:
+        player.y += 4
+
+    player.x = max(0, min(WIDTH, player.x))
+    player.y = max(0, min(HEIGHT, player.y))
+
+    if player.colliderect(plankton):
         score += 1
-        plankton.x = random.randint(0, WIDTH)
-        plankton.y = random.randint(0, HEIGHT)
-    
-    # Check collision with jellyfish
-    if (abs(player.x - jellyfish.x) < 40 and 
-        abs(player.y - jellyfish.y) < 40):
-        game_over = True
-    
-    # Check collision with shark
-    if (abs(player.x - shark.x) < 50 and 
-        abs(player.y - shark.y) < 50):
-        game_over = True
+        plankton.pos = (random.randint(50, WIDTH - 50), random.randint(50, HEIGHT - 50))
+
+    if player.colliderect(jellyfish):
+        state = "game_over"
+
+    # TODO: replace jellyfish and plankton with lists, and loop through them
 
 def draw():
-    screen.clear((100, 150, 200))
-    
-    screen.blit(player.image, (player.x, player.y))
-    screen.blit(shark.image, (shark.x, shark.y))
-    screen.blit(plankton.image, (plankton.x, plankton.y))
-    screen.blit(jellyfish.image, (jellyfish.x, jellyfish.y))
-    
-    screen.draw.text(f"Score: {score}", (10, 10), color="white")
-    
-    if game_over:
-        screen.draw.text("GAME OVER", (WIDTH // 2 - 100, HEIGHT // 2), 
-                        color="red", fontsize=50)
+    screen.fill((20, 80, 160))  # ocean blue
+
+    if state == "start":
+        screen.draw.text("Deep Sea Dash", center=(WIDTH // 2, HEIGHT // 2 - 30), fontsize=40, color="white")
+        screen.draw.text("Press SPACE to dive in!", center=(WIDTH // 2, HEIGHT // 2 + 30), fontsize=24, color="cyan")
+
+    elif state == "playing":
+        player.draw()
+        jellyfish.draw()
+        plankton.draw()
+        screen.draw.text(f"Score: {score}", (10, 10), fontsize=24, color="white")
+
+    elif state == "game_over":
+        screen.draw.text("Stung!", center=(WIDTH // 2, HEIGHT // 2 - 30), fontsize=50, color="red")
+        screen.draw.text(f"Final Score: {score}", center=(WIDTH // 2, HEIGHT // 2 + 30), fontsize=28, color="yellow")
+        screen.draw.text("Press R to try again", center=(WIDTH // 2, HEIGHT // 2 + 80), fontsize=22, color="white")
 
 def on_key_down(key):
-    if key == keys.UP:
-        player.y -= 10
-    elif key == keys.DOWN:
-        player.y += 10
-    elif key == keys.LEFT:
-        player.x -= 10
-    elif key == keys.RIGHT:
-        player.x += 10
-    
-    # Wrap around screen
-    if player.x < 0:
-        player.x = WIDTH
-    elif player.x > WIDTH:
-        player.x = 0
-    if player.y < 0:
-        player.y = HEIGHT
-    elif player.y > HEIGHT:
-        player.y = 0
+    global state
+    if state == "start" and key == keys.SPACE:
+        reset_game()
+        state = "playing"
+    elif state == "game_over" and key == keys.R:
+        state = "start"
 
 pgzrun.go()

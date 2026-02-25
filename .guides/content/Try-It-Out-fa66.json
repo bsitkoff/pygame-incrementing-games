@@ -7,7 +7,7 @@
 			"action": "close"
 		},
 		{
-			"path": "tryit.py",
+			"path": "lists.py",
 			"panel": 1,
 			"action": "open"
 		},
