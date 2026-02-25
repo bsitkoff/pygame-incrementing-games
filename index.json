@@ -1,0 +1,22 @@
+{
+	"theme": "light",
+	"scripts": [],
+	"lexikonTopic": "",
+	"suppressPageNumbering": true,
+	"useSubmitButtons": true,
+	"useMarkAsComplete": true,
+	"hideMenu": false,
+	"allowGuideClose": false,
+	"collapsedOnStart": false,
+	"hideSectionsToggle": false,
+	"hideBackToDashboard": false,
+	"protectLayout": false,
+	"title": "Loops and Lists",
+	"order": [
+		"Get-Ready-44ee",
+		"Try-It-Out-fa66",
+		"Change-It-b8c4",
+		"Create-Your-Own-e169",
+		"Playtest-and-Reflect-cd9b"
+	]
+}
