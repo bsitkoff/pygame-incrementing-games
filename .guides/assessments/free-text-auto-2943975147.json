@@ -1,0 +1,51 @@
+{
+	"type": "free-text-auto",
+	"taskId": "free-text-auto-2943975147",
+	"source": {
+		"name": "Reflect: Modifying Lists",
+		"showName": false,
+		"instructions": "Describe one change you made to lists.py and what happened. For example: Did you change the number of jellyfish or plankton? Make the jellyfish move? Remove plankton from the list? How did it affect the gameplay?",
+		"command": "python3 .guides/secure/freetext.py --question 'Describe one change you made to lists.py and what happened. Did you change sprite counts, add movement, or remove items from a list? How did it affect gameplay?' --use-llm",
+		"timeoutSeconds": 40,
+		"metadata": {
+			"tags": [
+				{
+					"name": "Assessment Type",
+					"value": "Free Text Autograde"
+				}
+			],
+			"files": [
+				"tryit.py",
+				"lists.py"
+			],
+			"opened": [
+				{
+					"type": "file",
+					"panelNumber": 1,
+					"content": "lists.py"
+				},
+				{
+					"type": "preview",
+					"panelNumber": 0,
+					"content": "https://{{domain3050}}/"
+				},
+				{
+					"type": "terminal",
+					"panelNumber": 1,
+					"content": ""
+				}
+			]
+		},
+		"bloomsObjectiveLevel": "",
+		"learningObjectives": "I can modify lists of sprites to change game difficulty and behavior.",
+		"guidance": "A strong answer describes a specific change (e.g., increased range() to 8, added y movement in a for loop, or used .remove() on plankton) and explains how it affected the game.",
+		"showGuidanceAfterResponseOption": {
+			"type": "Never"
+		},
+		"maxAttemptsCount": 0,
+		"arePartialPointsAllowed": false,
+		"previewType": "NONE",
+		"points": 1,
+		"useMaximumScore": false
+	}
+}

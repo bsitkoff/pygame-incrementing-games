@@ -1,0 +1,80 @@
+{
+	"type": "llm-based-auto-rubric",
+	"taskId": "llm-based-auto-rubric-1297927026",
+	"source": {
+		"name": "Create Your Own: Lists & Loops Game",
+		"showName": false,
+		"instructions": "Submit your game code in tryit.py. Your game should use lists of sprites, for loops, game states, and a custom sprite.",
+		"metadata": {
+			"tags": [],
+			"files": [
+				"tryit.py"
+			],
+			"opened": [
+				{
+					"type": "file",
+					"panelNumber": 1,
+					"content": "tryit.py"
+				},
+				{
+					"type": "preview",
+					"panelNumber": 0,
+					"content": "https://{{domain3050}}/"
+				},
+				{
+					"type": "terminal",
+					"panelNumber": 1,
+					"content": ""
+				}
+			]
+		},
+		"bloomsObjectiveLevel": "",
+		"learningObjectives": "I can build a game that uses lists of sprites, for loops for drawing and collision detection, and game state management.",
+		"guidance": "",
+		"showGuidanceAfterResponseOption": {
+			"type": "Never"
+		},
+		"maxAttemptsCount": 0,
+		"points": 5,
+		"arePartialPointsAllowed": true,
+		"rubrics": [
+			{
+				"id": "1",
+				"title": "List of Sprites",
+				"description": "The code creates a list containing at least 3 sprites (enemies, collectibles, or obstacles). Look for a list being built with a loop or literal list containing Actor objects.",
+				"points": 1
+			},
+			{
+				"id": "2",
+				"title": "For Loop to Draw",
+				"description": "The draw() function uses a for loop to draw all items in the sprite list, rather than drawing each sprite individually.",
+				"points": 1
+			},
+			{
+				"id": "3",
+				"title": "For Loop for Collisions",
+				"description": "The update() function uses a for loop to check collisions between the player and each item in the sprite list.",
+				"points": 1
+			},
+			{
+				"id": "4",
+				"title": "Game States with Score",
+				"description": "The game uses a state variable with at least start, playing, and game_over states. A score variable tracks and displays points. The game can be started and restarted using keyboard input.",
+				"points": 1
+			},
+			{
+				"id": "5",
+				"title": "Custom Sprite",
+				"description": "The game uses at least one custom sprite image (an Actor with an image name other than the defaults: fish, jellyfish, plankton, shark) OR the student has clearly re-themed the game with new text, colors, and behavior.",
+				"points": 1
+			}
+		],
+		"rubricsRequirements": "Evaluate the student's tryit.py code against each rubric item. Award full points for each criterion that is clearly met. Award partial points if the student made a genuine attempt but the implementation is incomplete. The code should be meaningfully different from the starter code.",
+		"solutions": [
+			{
+				"path": ".guides/secure/solution.py",
+				"content": "import pgzrun\nimport random\n\nWIDTH = 800\nHEIGHT = 600\n\nstate = \"start\"\nscore = 0\n\nplayer = Actor('fish')\nplayer.pos = (WIDTH // 2, HEIGHT // 2)\n\n# List of jellyfish to avoid\njellyfish = []\nfor i in range(4):\n    j = Actor('jellyfish')\n    j.pos = (random.randint(50, WIDTH - 50), random.randint(50, HEIGHT - 50))\n    jellyfish.append(j)\n\n# List of plankton to collect\nplankton = []\nfor i in range(5):\n    p = Actor('plankton')\n    p.pos = (random.randint(50, WIDTH - 50), random.randint(50, HEIGHT - 50))\n    plankton.append(p)\n\n# Custom sprite: starfish as a bonus collectible\nstarfish = Actor('starfish')\nstarfish.pos = (random.randint(50, WIDTH - 50), random.randint(50, HEIGHT - 50))\n\ndef reset_game():\n    global score\n    score = 0\n    player.pos = (WIDTH // 2, HEIGHT // 2)\n    for j in jellyfish:\n        j.pos = (random.randint(50, WIDTH - 50), random.randint(50, HEIGHT - 50))\n    for p in plankton:\n        p.pos = (random.randint(50, WIDTH - 50), random.randint(50, HEIGHT - 50))\n    starfish.pos = (random.randint(50, WIDTH - 50), random.randint(50, HEIGHT - 50))\n\ndef update():\n    global state, score\n\n    if state != \"playing\":\n        return\n\n    if keyboard.left:\n        player.x -= 4\n    if keyboard.right:\n        player.x += 4\n    if keyboard.up:\n        player.y -= 4\n    if keyboard.down:\n        player.y += 4\n\n    player.x = max(0, min(WIDTH, player.x))\n    player.y = max(0, min(HEIGHT, player.y))\n\n    # For loop to check collisions with each plankton in the list\n    for p in plankton:\n        if player.colliderect(p):\n            score += 1\n            p.pos = (random.randint(50, WIDTH - 50), random.randint(50, HEIGHT - 50))\n\n    # For loop to check collisions with each jellyfish in the list\n    for j in jellyfish:\n        if player.colliderect(j):\n            state = \"game_over\"\n\n    # Check starfish (custom sprite)\n    if player.colliderect(starfish):\n        score += 3\n        starfish.pos = (random.randint(50, WIDTH - 50), random.randint(50, HEIGHT - 50))\n\ndef draw():\n    screen.fill((20, 80, 160))  # ocean blue\n\n    if state == \"start\":\n        screen.draw.text(\"Deep Sea Dash\", center=(WIDTH // 2, HEIGHT // 2 - 30), fontsize=40, color=\"white\")\n        screen.draw.text(\"Press SPACE to dive in!\", center=(WIDTH // 2, HEIGHT // 2 + 30), fontsize=24, color=\"cyan\")\n\n    elif state == \"playing\":\n        player.draw()\n\n        # For loop to draw all plankton in the list\n        for p in plankton:\n            p.draw()\n\n        # For loop to draw all jellyfish in the list\n        for j in jellyfish:\n            j.draw()\n\n        starfish.draw()\n        screen.draw.text(f\"Score: {score}\", (10, 10), fontsize=24, color=\"white\")\n\n    elif state == \"game_over\":\n        screen.draw.text(\"Stung!\", center=(WIDTH // 2, HEIGHT // 2 - 30), fontsize=50, color=\"red\")\n        screen.draw.text(f\"Final Score: {score}\", center=(WIDTH // 2, HEIGHT // 2 + 30), fontsize=28, color=\"yellow\")\n        screen.draw.text(\"Press R to try again\", center=(WIDTH // 2, HEIGHT // 2 + 80), fontsize=22, color=\"white\")\n\ndef on_key_down(key):\n    global state\n    if state == \"start\" and key == keys.SPACE:\n        reset_game()\n        state = \"playing\"\n    elif state == \"game_over\" and key == keys.R:\n        state = \"start\"\n\npgzrun.go()\n"
+			}
+		]
+	}
+}

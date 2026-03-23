@@ -1,14 +1,26 @@
 ## Try It Out
 
-Hit **Run** to start `lists.py`.
+> **Watch:** Lists of Actors
+> *Record in Screencastify — create a list, loop through it to draw and check collisions*
+> *Objective: I can create a list of sprites and use a for loop to draw and check them all.*
+> **[ADD VIDEO URL WHEN RECORDED]**
+
+---
+
+## lists.py
+
+Type `python3 lists.py` in the terminal and press Enter.
+
+Don't worry — you can't break anything permanently!
 
 This is a full ocean-themed game. Collect plankton, avoid jellyfish, watch out for the shark.
 
 **While you play, look at the code:**
-- Find where the list of jellyfish is defined
+- Find where the list of jellyfish is created (look around lines 21-25)
 - Find the `for` loop that checks collisions with each jellyfish
 - Find the `for` loop in `draw()` that draws all the plankton
+- Notice the `state` and `score` variables at the top — same pattern as the last lesson! The game uses `"start"`, `"playing"`, and `"game_over"` to control what's on screen.
 
 **Notice:** How many jellyfish and plankton are there? What would you need to change to add one more of each?
 
-> *[TODO: insert free-text-auto assessment — "Find the list in lists.py and the for loop that uses it. Describe in your own words how it works."]*
+{Check It!|assessment}(free-text-auto-864059797)

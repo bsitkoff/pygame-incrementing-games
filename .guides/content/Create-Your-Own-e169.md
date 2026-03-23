@@ -1,17 +1,17 @@
 ## Create Your Own
 
-Build a game that uses **at least one list of sprites** in `tryit.py`.
+Build a game that uses **at least one list of sprites** in `tryit.py`. The starter code has single jellyfish and plankton variables — your job is to replace them with lists and loops.
+
+Type `python3 tryit.py` in the terminal to run your game as you work.
 
 ---
 
-### 🖼️ Using Your Own Sprite
+### Using Your Own Sprites
 
-*Need a custom image? Here's the workflow — or rewatch the video from Lesson 1.*
-
-1. Find an image that's **at least 80×80 pixels**
-2. Open **[Squoosh](https://squoosh.app)**, resize to about 80×80, and download *(Squoosh can make images smaller but not larger — start with a big enough image!)*
+1. Find a PNG image that's **at least 80x80 pixels**
+2. Open **[Canva Image Resizer](https://www.canva.com/features/resize-image/)**, upload the image, resize to about 80x80 px, and download as PNG
 3. Upload the file to your `images/` folder in Codio
-4. Update the `Actor('name')` in your code to match the filename (no `.png`)
+4. Update the `Actor('name')` in your code to match the filename (without `.png`)
 
 ---
 
@@ -22,11 +22,11 @@ Build a game in `tryit.py` that:
 1. Has a **list of at least 3 sprites** (enemies, collectibles, or obstacles)
 2. Uses a **for loop to draw** all items in the list
 3. Uses a **for loop to check collisions** for all items in the list
-4. Has **game states** (start, playing, game over) with score tracking
-5. Uses **your own sprites**
+4. Has **game states** (start, playing, game over) with score tracking — the starter code already has `state` and `score` from the last lesson, so make sure they still work with your lists
+5. Uses **at least one custom sprite** (your own image in the `images/` folder)
 
-> *[TODO: insert LLM rubric autograder — 5 rubric items matching requirements above]*
+{Check It!|assessment}(llm-based-auto-rubric-1297927026)
 
 ---
 
-If you finish early: try having the list grow as the game goes on — harder over time!
+Challenge: try having the list grow as the game goes on — more enemies over time means harder difficulty!

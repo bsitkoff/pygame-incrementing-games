@@ -12,13 +12,13 @@
 			"action": "open"
 		},
 		{
-			"path": "#preview: https://{{domain3050}}/",
-			"panel": 2,
+			"path": "#terminal: ",
+			"panel": 1,
 			"action": "open"
 		},
 		{
-			"path": "#terminal: ",
-			"panel": 3,
+			"path": "#preview: https://{{domain3050}}/",
+			"panel": 0,
 			"action": "open"
 		}
 	],
@@ -28,5 +28,5 @@
 	"teacherOnly": false,
 	"closeTerminalSession": true,
 	"learningObjectives": "",
-	"layout": "4-cell-guides-left"
+	"layout": "2-panels-tree-guides-left"
 }

@@ -1,0 +1,50 @@
+{
+	"type": "free-text-auto",
+	"taskId": "free-text-auto-864059797",
+	"source": {
+		"name": "Observe: Lists and Loops in Action",
+		"showName": false,
+		"instructions": "After playing the game and reading the code in lists.py: Where is the list of jellyfish created? How does the for loop in update() check collisions with every jellyfish? What would you change to add one more jellyfish?",
+		"command": "python3 .guides/secure/freetext.py --question 'Where is the jellyfish list created in lists.py? How does the for loop check collisions with every jellyfish? What would you change to add one more?' --use-llm",
+		"timeoutSeconds": 40,
+		"metadata": {
+			"tags": [
+				{
+					"name": "Assessment Type",
+					"value": "Free Text Autograde"
+				}
+			],
+			"files": [
+				"lists.py"
+			],
+			"opened": [
+				{
+					"type": "file",
+					"panelNumber": 1,
+					"content": "lists.py"
+				},
+				{
+					"type": "preview",
+					"panelNumber": 0,
+					"content": "https://{{domain3050}}/"
+				},
+				{
+					"type": "terminal",
+					"panelNumber": 1,
+					"content": ""
+				}
+			]
+		},
+		"bloomsObjectiveLevel": "",
+		"learningObjectives": "I can identify where lists and for loops are used to manage multiple sprites in a game.",
+		"guidance": "A strong answer references the jellyfish list creation (around lines 21-25), the for loop in update() that iterates through the list, and mentions changing the range() number to add more.",
+		"showGuidanceAfterResponseOption": {
+			"type": "Never"
+		},
+		"maxAttemptsCount": 0,
+		"arePartialPointsAllowed": false,
+		"previewType": "NONE",
+		"points": 1,
+		"useMaximumScore": false
+	}
+}

@@ -1,0 +1,35 @@
+{
+	"type": "free-text-auto",
+	"taskId": "free-text-auto-27581586",
+	"source": {
+		"name": "Reflect: Lists vs. Single Variables",
+		"showName": false,
+		"instructions": "After playtesting, reflect: What's the difference between having one enemy variable vs. a list of enemies? Why does that matter for game design?",
+		"command": "python3 .guides/secure/freetext.py --question 'What is the difference between having one enemy variable vs. a list of enemies? Why does that matter for game design?' --use-llm",
+		"timeoutSeconds": 40,
+		"metadata": {
+			"tags": [
+				{
+					"name": "Assessment Type",
+					"value": "Free Text Autograde"
+				}
+			],
+			"files": [
+				"tryit.py",
+				"lists.py"
+			],
+			"opened": []
+		},
+		"bloomsObjectiveLevel": "",
+		"learningObjectives": "I can explain why lists are more scalable than individual variables for managing multiple game sprites.",
+		"guidance": "A strong answer explains that lists let you scale easily (change one number to add more), reduce repeated code, and use loops instead of copy-pasting. They might mention that this makes games more interesting with more obstacles or collectibles.",
+		"showGuidanceAfterResponseOption": {
+			"type": "Never"
+		},
+		"maxAttemptsCount": 0,
+		"arePartialPointsAllowed": false,
+		"previewType": "NONE",
+		"points": 1,
+		"useMaximumScore": false
+	}
+}

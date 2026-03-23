@@ -1,40 +1,41 @@
 ## Change It
 
-> 📹 **Watch:** Changing a List While the Game Runs
+Don't worry — you can't break anything permanently!
+
+> **Watch:** Changing a List While the Game Runs
 > *Record in Screencastify — show adding and removing sprites from a list during gameplay*
 > *Objective: I can add and remove sprites from a list during gameplay.*
 > **[ADD VIDEO URL WHEN RECORDED]**
 
 ---
 
-## 1: Change the Count
+### 1: Change the Count
 
-Find the list of jellyfish and the list of plankton in `lists.py`. Change the numbers — try 8 jellyfish, or 1 piece of plankton. How does it feel?
+Find where the `jellyfish` list and the `plankton` list are created in `lists.py`. Change the numbers in `range()` — try 8 jellyfish, or just 1 piece of plankton. Run it again with `python3 lists.py`. How does the difficulty change?
 
-## 2: Add a New Jellyfish When One Is Avoided
+### 2: Make the Jellyfish Move
 
-When the player avoids a jellyfish (passes it without touching), it would be cool to add another. Try:
+Right now the jellyfish just sit still. The shark already moves back and forth — find that code and use it as a model. Can you make each jellyfish drift downward? You'll need a `for` loop in `update()` that moves every jellyfish in the list.
+
+Think about: what should happen when a jellyfish drifts past the bottom of the screen?
+
+<details><summary>Hint: how does the shark move?</summary>
+
+Look at how the shark's position changes each frame. The shark uses `shark.x += shark.dx` to move horizontally. For jellyfish drifting down, you'd change their `y` position instead. When a jellyfish goes past the bottom of the screen (`HEIGHT`), you could reposition it back to the top at a random `x` position.
+
+</details>
+
+### 3: Remove Instead of Reposition
+
+When the player collects plankton, the code repositions it to a random spot. What if you *removed* it from the list instead? Here's an example of removing an item from a list:
 
 ```python
-if jellyfish.y > HEIGHT:
-    jellyfish_list.append(Actor('jellyfish'))
-    jellyfish_list[-1].pos = (random.randint(0, WIDTH), 0)
+fruits = ["apple", "banana", "cherry"]
+fruits.remove("banana")
+print(fruits)  # ["apple", "cherry"]
 ```
 
-*(This only works if jellyfish are moving — you might need to add that first!)*
-
-## 3: Remove a Plankton When Collected
-
-Right now collected plankton probably gets repositioned. Try removing it from the list instead:
-
-```python
-if player.colliderect(p):
-    plankton_list.remove(p)
-    score += 1
-```
-
-What happens when the list is empty?
+Try adapting this idea so collected plankton disappears for good. What happens when the list is empty?
 
 ---
-
-> *[TODO: insert free-text-auto assessment — "What did you change? What did you notice about using lists vs single variables?"]*
+{Check It!|assessment}(free-text-auto-2943975147)

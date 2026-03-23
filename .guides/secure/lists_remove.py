@@ -34,8 +34,12 @@ def reset_game():
     global score
     score = 0
     player.pos = (WIDTH // 2, HEIGHT // 2)
-    for p in plankton:
+    # Rebuild the plankton list since items were removed
+    plankton.clear()
+    for i in range(5):
+        p = Actor('plankton')
         p.pos = (random.randint(50, WIDTH - 50), random.randint(50, HEIGHT - 50))
+        plankton.append(p)
     for j in jellyfish:
         j.pos = (random.randint(50, WIDTH - 50), random.randint(50, HEIGHT - 50))
     shark.pos = (100, 100)
@@ -71,11 +75,18 @@ def update():
     if shark.x < 0 or shark.x > WIDTH:
         shark.dx = -shark.dx
 
-    # Check each plankton for collision
-    for p in plankton:
+    # Jellyfish drift downward
+    for j in jellyfish:
+        j.y += 1
+        if j.y > HEIGHT:
+            j.y = 0
+            j.x = random.randint(50, WIDTH - 50)
+
+    # Collect plankton — remove from list instead of repositioning
+    for p in list(plankton):
         if player.colliderect(p):
             score += 1
-            p.pos = (random.randint(50, WIDTH - 50), random.randint(50, HEIGHT - 50))
+            plankton.remove(p)
 
     # Check each jellyfish for collision
     for j in jellyfish:
@@ -107,6 +118,9 @@ def draw():
             j.draw()
 
         screen.draw.text(f"Score: {score}", (10, 10), fontsize=30, color="white")
+
+        # Show how many plankton are left
+        screen.draw.text(f"Plankton left: {len(plankton)}", (10, 40), fontsize=20, color="yellow")
 
     elif state == "game_over":
         screen.draw.text("GAME OVER", center=(WIDTH // 2, HEIGHT // 2 - 30),

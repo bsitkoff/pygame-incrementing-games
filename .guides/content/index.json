@@ -1,7 +1,7 @@
 {
+	"title": "Extension: Incrementing Games",
 	"theme": "light",
 	"scripts": [],
-	"lexikonTopic": "",
 	"suppressPageNumbering": true,
 	"useSubmitButtons": true,
 	"useMarkAsComplete": true,
@@ -11,7 +11,6 @@
 	"hideSectionsToggle": false,
 	"hideBackToDashboard": false,
 	"protectLayout": false,
-	"title": "Loops and Lists",
 	"order": [
 		"Get-Ready-44ee",
 		"Try-It-Out-fa66",

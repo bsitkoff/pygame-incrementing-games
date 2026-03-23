@@ -71,6 +71,13 @@ def update():
     if shark.x < 0 or shark.x > WIDTH:
         shark.dx = -shark.dx
 
+    # Jellyfish drift downward
+    for j in jellyfish:
+        j.y += 1
+        if j.y > HEIGHT:
+            j.y = 0
+            j.x = random.randint(50, WIDTH - 50)
+
     # Check each plankton for collision
     for p in plankton:
         if player.colliderect(p):

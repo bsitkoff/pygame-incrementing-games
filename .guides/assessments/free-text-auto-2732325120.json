@@ -1,0 +1,32 @@
+{
+	"type": "free-text-auto",
+	"taskId": "free-text-auto-2732325120",
+	"source": {
+		"name": "Predict: Lists for Sprites",
+		"showName": false,
+		"instructions": "How might a list make it easier to manage 5 jellyfish instead of 5 separate variables? What would change about the draw() and update() functions?",
+		"command": "python3 .guides/secure/freetext.py --question 'How might a list make it easier to manage 5 jellyfish instead of 5 separate variables? What would change about draw() and update()?' --use-llm",
+		"timeoutSeconds": 40,
+		"metadata": {
+			"tags": [
+				{
+					"name": "Assessment Type",
+					"value": "Free Text Autograde"
+				}
+			],
+			"files": [],
+			"opened": []
+		},
+		"bloomsObjectiveLevel": "",
+		"learningObjectives": "I can predict how lists reduce repeated code when managing multiple sprites.",
+		"guidance": "A strong answer mentions using a for loop to draw or check collisions for all items in a list, instead of writing separate lines for each variable.",
+		"showGuidanceAfterResponseOption": {
+			"type": "Never"
+		},
+		"maxAttemptsCount": 0,
+		"arePartialPointsAllowed": false,
+		"previewType": "NONE",
+		"points": 1,
+		"useMaximumScore": false
+	}
+}
