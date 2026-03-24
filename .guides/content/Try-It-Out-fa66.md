@@ -1,17 +1,12 @@
 ## Try It Out
 
-> **Watch:** Lists of Actors
-> *Record in Screencastify — create a list, loop through it to draw and check collisions*
-> *Objective: I can create a list of sprites and use a for loop to draw and check them all.*
-> **[ADD VIDEO URL WHEN RECORDED]**
+> 📹 **[VIDEO NOT YET RECORDED — Lists of Actors. Script at `.guides/secure/video-script-tryitout.md`]**
 
 ---
 
 ## lists.py
 
 Type `python3 lists.py` in the terminal and press Enter.
-
-Don't worry — you can't break anything permanently!
 
 This is a full ocean-themed game. Collect plankton, avoid jellyfish, watch out for the shark.
 
