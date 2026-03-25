@@ -1,7 +1,15 @@
 ## Try It Out
 
-> 📹 **[VIDEO NOT YET RECORDED — Lists of Actors. Script at `.guides/secure/video-script-tryitout.md`]**
 
+<iframe width="720" height="600"
+  src="https://app.screencastify.com/watch/5y7MeeqhKH8uCAD5K5IW/embed"
+  title="Codio - Extension: Incrementing Games-1 - Screencastify - March 24, 2026 9:32 PM"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen
+></iframe>
+  
 ---
 
 ## lists.py

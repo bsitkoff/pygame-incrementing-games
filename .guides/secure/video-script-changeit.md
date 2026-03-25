@@ -15,7 +15,7 @@
 
 ## PART 1: Change the count (~60 seconds)
 
-**Show:** `lists.py`, highlight the jellyfish creation loop (lines 21-26):
+**Show:** `lists.py`, highlight the jellyfish creation loop (lines 22-26):
 
 ```python
 jellyfish = []
@@ -28,7 +28,7 @@ for i in range(3):
 
 "Eight jellyfish. And while we're at it…"
 
-**Show:** Highlight plankton creation (lines 15-19).
+**Show:** Highlight plankton creation (lines 16-19).
 
 **Live edit:** Change `range(5)` to `range(1)`.
 
@@ -44,7 +44,7 @@ for i in range(3):
 
 ## PART 2: Make the jellyfish move (~90 seconds)
 
-**Show:** Highlight the shark movement code in `update()` (lines 69-72):
+**Show:** Highlight the shark movement code in `update()` (lines 70-72):
 
 ```python
 shark.x += shark.dx
@@ -54,7 +54,7 @@ if shark.x < 0 or shark.x > WIDTH:
 
 "The shark already moves — it has a `dx` property that gets added to its `x` position every frame. When it hits the edge, `dx` flips direction. We want to do something similar for jellyfish, but simpler: just drift them downward."
 
-**Live edit:** Add this code in `update()`, after the shark movement block (after line 72):
+**Live edit:** Add this code in `update()`, after the shark movement block (after line 72, before the plankton collision loop):
 
 ```python
     # Jellyfish drift downward
@@ -75,7 +75,7 @@ if shark.x < 0 or shark.x > WIDTH:
 
 ## PART 3: Remove instead of reposition (~90 seconds)
 
-**Show:** Highlight the plankton collision code (lines 75-78):
+**Show:** Highlight the plankton collision code (lines 74-78):
 
 ```python
 for p in plankton:

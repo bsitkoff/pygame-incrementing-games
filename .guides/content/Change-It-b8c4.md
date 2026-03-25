@@ -1,8 +1,5 @@
 ## Change It
 
-> 📹 **[VIDEO NOT YET RECORDED — Changing a List While the Game Runs. Script at `.guides/secure/video-script-changeit.md`]**
-
----
 
 ### 1: Change the Count
 

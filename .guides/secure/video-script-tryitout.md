@@ -22,7 +22,7 @@
 
 ## PART 2: State variables — quick callback (~30 seconds)
 
-**Show:** Highlight lines 7-9 of `lists.py`:
+**Show:** Highlight lines 8-9 of `lists.py` (line 7 is the comment above):
 
 ```python
 # State variables — same pattern as the last lesson
@@ -40,7 +40,7 @@ score = 0
 
 ## PART 3: Creating a list of sprites (~60 seconds)
 
-**Show:** Highlight lines 14-19:
+**Show:** Highlight lines 15-19:
 
 ```python
 plankton = []
@@ -52,7 +52,7 @@ for i in range(5):
 
 "Here's where lists come in. We start with an empty list — `plankton = []`. Then a `for` loop runs 5 times. Each time through, it creates a new Actor, gives it a random position, and appends it to the list. When we're done, `plankton` is a list of 5 separate sprites."
 
-**Show:** Highlight lines 21-26:
+**Show:** Highlight lines 22-26:
 
 ```python
 jellyfish = []
@@ -84,7 +84,7 @@ for j in jellyfish:
 
 ## PART 5: Collision checking with a for loop (~40 seconds)
 
-**Show:** Highlight lines 75-78:
+**Show:** Highlight lines 74-78:
 
 ```python
 for p in plankton:
